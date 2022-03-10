@@ -1,12 +1,12 @@
 import Card from "./Card";
 
-function CardList({ data }) {
+function CardList({ profiles }) {
     return (
         <ul className="c-cards">
-            {data.map(profile => {
+            {profiles.map(profile => {
                 return (
                     <li className="c-cards__item">
-                        <Card {...profile} />
+                        <Card key={profile.id} {...profile} />
                     </li>
                 )
             })}
