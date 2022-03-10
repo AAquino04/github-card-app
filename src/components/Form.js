@@ -3,11 +3,13 @@ import axios from "axios";
 
 class Form extends React.Component {
     state = { userName: "" };
+
     handleSubmit = async (event) => {
         event.preventDefault(); // Stops page refresh on submit
         const response = await axios.get(`https://api.github.com/users/${this.state.userName}`);
-        this.props.onSubmit(response.data);
-        this.setState({ userName: "" });
+        this.setState({ userName: "" }, () => {
+            this.props.onSubmit(response.data)
+        });
     }
 
     render() {

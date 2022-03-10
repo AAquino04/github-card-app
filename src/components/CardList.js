@@ -3,10 +3,10 @@ import Card from "./Card";
 function CardList({ profiles }) {
     return (
         <ul className="c-cards">
-            {profiles.map(profile => {
+            {profiles.map((profile, index) => {
                 return (
-                    <li className="c-cards__item">
-                        <Card key={profile.id} {...profile} />
+                    <li key={index} className="c-cards__item">
+                        <Card {...profile} />
                     </li>
                 )
             })}
